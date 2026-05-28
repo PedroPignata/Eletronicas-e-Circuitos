@@ -1,0 +1,98 @@
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity simulacao is
+
+end simulacao;
+
+architecture Behavioral of simulacao is
+
+component COMPORTA is 
+Port (A : in STD_LOGIC;
+      B : in STD_LOGIC;
+      C : in STD_LOGIC;
+      S : out STD_LOGIC
+     );
+end component;
+
+---sinais de entrada
+
+signal A_s, B_s, C_s: STD_LOGIC:='0';
+
+
+---sinais saida
+
+signal S_s: STD_LOGIC;
+
+begin
+  U0: COMPORTA port map(
+    A=>A_s,
+    B=>B_s,
+    C=>C_s,
+    S=>S_s
+  );
+  
+ process begin
+   ---estimulos da simulação com 100ms
+  
+ A_s<='0';
+ B_s<='0';
+ C_s<='0';
+   wait for 100 ms;
+   
+   
+ A_s<='0';
+ B_s<='0';
+ C_s<='1';
+   wait for 100 ms;
+   
+   
+ A_s<='0';
+ B_s<='1';
+ C_s<='0';
+   wait for 100 ms;
+   
+   
+ A_s<='0';
+ B_s<='1';
+ C_s<='1';
+   wait for 100 ms;
+   
+ A_s<='1';
+ B_s<='0';
+ C_s<='0';
+   wait for 100 ms;
+   
+ A_s<='1';
+ B_s<='0';
+ C_s<='1';
+   wait for 100 ms;
+ 
+   
+ A_s<='1';
+ B_s<='0';
+ C_s<='1';
+   wait for 100 ms;
+   
+ A_s<='1';
+ B_s<='1';
+ C_s<='0';
+   wait for 100 ms; 
+   
+   
+ A_s<='1';
+ B_s<='1';
+ C_s<='1';
+   wait for 100 ms;
+   
+   
+ A_s<='0';
+ B_s<='0';
+ C_s<='0';
+   wait for 100 ms;
+   wait;
+   
+ end process;
+  
+end Behavioral;

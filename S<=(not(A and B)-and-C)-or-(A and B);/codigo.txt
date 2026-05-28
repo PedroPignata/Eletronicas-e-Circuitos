@@ -1,0 +1,20 @@
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use IEEE.std_logic_unsigned.all;
+entity COMPORTA is
+Port (A : in STD_LOGIC;
+      B : in STD_LOGIC;
+      C : in STD_LOGIC;
+      S : out STD_LOGIC
+     );
+end COMPORTA;
+
+architecture Behavioral of COMPORTA is
+
+begin
+  
+S<= (not(A and B) and C) or (A and B);
+  
+end Behavioral;
